@@ -10,7 +10,6 @@ void main(){
 }
 
 class Player{
-  @override
   void display(){
     print('Player');
   }
