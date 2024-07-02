@@ -1,19 +1,39 @@
-// mixin is simply a class with no constructor
-// mixin is used for code reusability just like inheritance
-// 'with' keyword is used instead of 'extends' keyword as in inheritance
+abstract class Animal {}
 
-class Player with Name,Age {
-  void position(){}
+abstract class Mammal extends Animal {}
+
+abstract class Bird extends Animal {}
+
+abstract class Fish extends Animal {}
+
+mixin Walker {
+  void walk() {
+    print("I'm walking");
+  }
 }
 
-class Manager with Name, Age {
-  void Experience(){}
-} 
-
-mixin Name{
-  void name(){}
+mixin Swimmer {
+  void swim() {
+    print("I'm swimming");
+  }
 }
 
-mixin Age{
-  void age(){}
+mixin Flyer {
+  void fly() {
+    print("I'm flying");
+  }
 }
+
+class Dolphin extends Mammal with Swimmer {}
+
+class Bat extends Mammal with Walker, Flyer {}
+
+class Cat extends Mammal with Walker {}
+
+class Dove extends Bird with Walker, Flyer {}
+
+class Duck extends Bird with Walker, Swimmer, Flyer {}
+
+class Shark extends Fish with Swimmer {}
+
+class FlyingFish extends Fish with Swimmer, Flyer {}
